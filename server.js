@@ -20,11 +20,20 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT;
-mongoose.connect("mongodb://localhost:27017/Watches", {
-	useNewUrlParser: true,
+mongoose.connect(
+	"mongodb+srv://Aa1791994:Aa1791994@cluster0.h4c2b.mongodb.net/watches?retryWrites=true&w=majority",
+	{
+		useNewUrlParser: true,
 
-	useUnifiedTopology: true,
-});
+		useUnifiedTopology: true,
+	}
+);
+
+// mongoose.connect("mongodb://localhost:27017/Watches", {
+// 	useNewUrlParser: true,
+
+// 	useUnifiedTopology: true,
+// });
 app.listen(PORT, () => {
 	console.log(`server start with port ${PORT}`);
 });
