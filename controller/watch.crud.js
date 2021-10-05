@@ -27,7 +27,7 @@ const craeteFavWatch = async (req, res) => {
 
 const getFavWatch = async (req, res) => {
 	const data = await WatchModel.find({});
-	res.send(getFavWatch);
+	res.send(data);
 };
 
 const deleteFAvWatch = (req, res) => {
@@ -47,13 +47,14 @@ const updateFavWatch = async (req, res) => {
 	const slug = req.params.slug;
 	const updateData = req.body;
 
-	WatchModel.findOne({ slug, slug }, (error, data) => {
+	WatchModel.findOne({ slug: slug }, (error, data) => {
 		data.id = updateData.id;
 		data.title = updateData.title;
+		data.toUSD = updateData.toUSD;
 		data.description = updateData.description;
 		data.image_url = updateData.image_url;
 
-		data.save;
+		data.save();
 	});
 
 	setTimeout(async () => {
